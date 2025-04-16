@@ -1,0 +1,110 @@
+{
+  "name": "mojolicious-template-support",
+  "displayName": "Mojolicious Template Support",
+  "description": "Syntax highlighting and formatting for Mojolicious templates",
+  "version": "0.0.1",
+  "publisher": "Woody2143",
+  "author": {
+    "name": "Woody2143",
+    "email": "woody@2143.net"
+  },
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Formatters"
+  ],
+  "activationEvents": [
+    "onLanguage:mojolicious-template"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "mojolicious-template",
+        "aliases": ["Mojolicious Template", "mojo", "ep"],
+        "extensions": [".html.ep", ".xml.ep", ".txt.ep"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "mojolicious-template",
+        "scopeName": "text.html.mojolicious",
+        "path": "./syntaxes/mojolicious.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.perl": "perl",
+          "meta.embedded.line.perl": "perl"
+        }
+      }
+    ],
+    "commands": [
+      {
+        "command": "mojolicious-template.format",
+        "title": "Format Mojolicious Template"
+      }
+    ],
+    "configuration": {
+      "title": "Mojolicious Template",
+      "properties": {
+        "mojolicious-template.format.indentSize": {
+          "type": "number",
+          "default": 2,
+          "description": "Number of spaces to use for indentation"
+        },
+        "mojolicious-template.format.maxLineLength": {
+          "type": "number",
+          "default": 100,
+          "description": "Maximum line length before wrapping"
+        },
+        "mojolicious-template.format.preserveNewlines": {
+          "type": "boolean",
+          "default": true,
+          "description": "Preserve existing blank lines when formatting"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.99.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.28.0",
+    "@typescript-eslint/parser": "^8.28.0",
+    "eslint": "^9.23.0",
+    "typescript": "^5.8.2",
+    "ts-loader": "^9.5.2",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Woody2143/vscode-mojolicious-template-plugin"
+  },
+  "bugs": {
+    "url": "https://github.com/Woody2143/vscode-mojolicious-template-plugin/issues"
+  },
+  "homepage": "https://github.com/Woody2143/vscode-mojolicious-template-plugin#readme",
+  "keywords": [
+    "perl",
+    "mojolicious",
+    "template",
+    "syntax",
+    "formatting"
+  ],
+  "license": "MIT"
+}

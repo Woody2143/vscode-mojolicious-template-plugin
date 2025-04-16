@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= $title %></title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .highlight {
+      background-color: #ffff00;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1><%= $title %></h1>
+  
+  <%# This is a comment that won't be rendered %>
+  
+  <% if ($showWelcome) { %>
+    <div class="welcome">
+      <p>Welcome to Mojolicious!</p>
+    </div>
+  <% } %>
+  
+  <div class="content">
+    <%= $content %>
+    <%== $htmlContent %>
+  </div>
+  
+  <ul>
+    % foreach my $item (@$items) {
+      <li><%= $item->{name} %></li>
+    % }
+  </ul>
+  
+  <% 
+    my $complexCalculation = sub {
+      my ($a, $b) = @_;
+      return $a * $b + ($a + $b);
+    };
+  %>
+  
+  <p>Result: <%= $complexCalculation->(10, 20) %></p>
+  
+  % if ($showFooter) {
+    <footer>
+      <p>&copy; <%= $year %> My Company</p>
+    </footer>
+  % }
+</body>
+</html>

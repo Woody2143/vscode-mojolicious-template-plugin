@@ -1,0 +1,104 @@
+{
+  "name": "Mojolicious Template",
+  "scopeName": "text.html.mojolicious",
+  "fileTypes": ["html.ep", "xml.ep", "txt.ep"],
+  "patterns": [
+    {
+      "include": "#mojolicious-comments"
+    },
+    {
+      "include": "#mojolicious-block"
+    },
+    {
+      "include": "#mojolicious-expression"
+    },
+    {
+      "include": "#mojolicious-line"
+    },
+    {
+      "include": "text.html.basic"
+    }
+  ],
+  "repository": {
+    "mojolicious-comments": {
+      "name": "comment.block.mojolicious",
+      "begin": "<%#",
+      "end": "%>",
+      "patterns": []
+    },
+    "mojolicious-block": {
+      "name": "meta.embedded.block.perl",
+      "begin": "<%(?!#|=|==)",
+      "end": "%>",
+      "beginCaptures": {
+        "0": { "name": "punctuation.section.embedded.begin.mojolicious" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.section.embedded.end.mojolicious" }
+      },
+      "patterns": [
+        { "include": "source.perl" }
+      ]
+    },
+    "mojolicious-expression": {
+      "patterns": [
+        {
+          "name": "meta.embedded.line.perl",
+          "begin": "<%=",
+          "end": "%>",
+          "beginCaptures": {
+            "0": { "name": "punctuation.section.embedded.begin.mojolicious" }
+          },
+          "endCaptures": {
+            "0": { "name": "punctuation.section.embedded.end.mojolicious" }
+          },
+          "patterns": [
+            { "include": "source.perl" }
+          ]
+        },
+        {
+          "name": "meta.embedded.line.perl",
+          "begin": "<%==",
+          "end": "%>",
+          "beginCaptures": {
+            "0": { "name": "punctuation.section.embedded.begin.mojolicious" }
+          },
+          "endCaptures": {
+            "0": { "name": "punctuation.section.embedded.end.mojolicious" }
+          },
+          "patterns": [
+            { "include": "source.perl" }
+          ]
+        }
+      ]
+    },
+    "mojolicious-line": {
+      "patterns": [
+        {
+          "name": "meta.embedded.line.perl",
+          "match": "^\\s*(%)\\s*(.*)$",
+          "captures": {
+            "1": { "name": "punctuation.section.embedded.begin.mojolicious" },
+            "2": { "patterns": [{ "include": "source.perl" }] }
+          }
+        },
+        {
+          "name": "meta.embedded.line.perl",
+          "match": "^\\s*(%=)\\s*(.*)$",
+          "captures": {
+            "1": { "name": "punctuation.section.embedded.begin.mojolicious" },
+            "2": { "patterns": [{ "include": "source.perl" }] }
+          }
+        },
+        {
+          "name": "meta.embedded.line.perl",
+          "match": "^\\s*(%==)\\s*(.*)$",
+          "captures": {
+            "1": { "name": "punctuation.section.embedded.begin.mojolicious" },
+            "2": { "patterns": [{ "include": "source.perl" }] }
+          }
+        }
+      ]
+    }
+  }
+}

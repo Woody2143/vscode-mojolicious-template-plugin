@@ -1,0 +1,25 @@
+Subject: <%= $emailSubject %>
+
+Dear <%= $userName %>,
+
+<%# This is a comment that won't be rendered in the email %>
+
+Thank you for signing up for our service!
+
+% if ($premiumAccount) {
+We're excited to offer you our premium features:
+% foreach my $feature (@$premiumFeatures) {
+- <%= $feature %>
+% }
+% } else {
+You're currently using our basic plan. Upgrade to premium to unlock:
+% foreach my $feature (@$premiumFeatures) {
+- <%= $feature %>
+% }
+% }
+
+<% my $contactInfo = join(', ', @$supportContacts); %>
+If you have any questions, please contact us at <%= $contactInfo %>.
+
+Regards,
+<%= $companyName %> Team
