@@ -38,13 +38,13 @@ Basic syntax checking is provided to catch common errors:
 
 This extension contributes the following settings:
 
-* `mojolicious-template.format.indentSize`: Number of spaces to use for indentation (default: 2)
-* `mojolicious-template.format.maxLineLength`: Maximum line length before wrapping (default: 100)
-* `mojolicious-template.format.preserveNewlines`: Preserve existing blank lines when formatting (default: true)
+- `mojolicious-template.format.indentSize`: Number of spaces to use for indentation (default: 2)
+- `mojolicious-template.format.maxLineLength`: Maximum line length before wrapping (default: 100)
+- `mojolicious-template.format.preserveNewlines`: Preserve existing blank lines when formatting (default: true)
 
 ## Commands
 
-* `Mojolicious Template: Format Document` - Format the current Mojolicious template
+- `Mojolicious Template: Format Document` - Format the current Mojolicious template
 
 ## Known Issues
 
@@ -56,6 +56,7 @@ This extension contributes the following settings:
 ### 0.0.1
 
 Initial release of Mojolicious Template Support:
+
 - Basic syntax highlighting
 - Template formatting with indentation
 - Basic syntax error detection
