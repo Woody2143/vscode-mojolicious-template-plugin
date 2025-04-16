@@ -35,7 +35,7 @@ jobs:
       run: npx @vscode/vsce package
 
     - name: Upload VSIX
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: mojolicious-template-support-${{ matrix.node-version }}
         path: "*.vsix"
