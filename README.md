@@ -34,6 +34,10 @@ Basic syntax checking is provided to catch common errors:
 - Basic syntax validation within code blocks
 - Validation for line-based Perl directives
 
+## Installation
+
+See the [Installation Guide](INSTALLATION.md) for detailed instructions on how to install the extension from different sources.
+
 ## Extension Settings
 
 This extension contributes the following settings:
