@@ -16,8 +16,21 @@ export default [{
 
     rules: {
         "@typescript-eslint/naming-convention": ["warn", {
-            selector: "import",
-            format: ["camelCase", "PascalCase"],
+            selector: "default",
+            format: ["camelCase"],
+            leadingUnderscore: "allow",
+            trailingUnderscore: "allow",
+        }, {
+            selector: "variable",
+            format: ["camelCase", "UPPER_CASE"],
+            leadingUnderscore: "allow",
+            trailingUnderscore: "allow",
+        }, {
+            selector: "typeLike",
+            format: ["PascalCase"],
+        }, {
+            selector: "function",
+            format: ["PascalCase"],
         }],
 
         curly: "warn",
